@@ -1,6 +1,10 @@
 // start with displaying the day
-// let todayEl = document.querySelector("#today");
+const todayEl = document.querySelector("#today");
 
-// todayEl.textContent = "Yooooo";
+const now = dayjs();
+
+todayEl.textContent = now;
 
 console.log("wor?");
+
+/// add bootstrap link
