@@ -23,10 +23,16 @@
       <div class="row">
         <!-- Left side -->
         <div class="col-12 col-md-4 col-lg-3 bg-warning">
-          <h2>Search for City</h2>
-          <label for="search"></label>
-          <textarea id="search" name="city" class="col-12">Honululu</textarea>
-          <button id="searchButton" class="col-12">Search</button>
+          <form id="cityForm" action="" method="get" class="citySearch">
+            <div class="citySearch">
+              <label for="search"><h2>Search for City</h2></label>
+              <input type="text" name="name" id="name" required />
+            </div>
+            <div class="citySearch">
+              <input type="submit" value="Search City" />
+            </div>
+
+
           LEFTasdfasdfsadfasdfsadf sadfasdf fsdfasdf Lorem ipsum dolor sit amet
           consectetur, adipisicing elit. Veritatis voluptates rem magnam ducimus
           dolore tempora fuga consectetur non hic voluptate repudiandae
@@ -37,7 +43,7 @@
         <div
           class="
             col-12 col-md-8 col-lg-9
-            bg-secondary
+            bg-light
             border border-success
             rounded
           "

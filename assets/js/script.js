@@ -1,17 +1,23 @@
-// start with displaying the day
+// Start with displaying the day
 const todayEl = document.querySelector("#today");
 const textAreaEl = document.querySelector("textarea");
 const cityNameEl = document.querySelector("#cityName");
-const buttonEl = document.querySelector("#searchButton");
+const formEl = document.querySelector("#cityForm");
+const searchInput = document.querySelector("input");
+
+let cityQuery = "";
 const now = dayjs();
 
 todayEl.textContent = now;
 
 // Search for city
-const searchCity = function () {
-  console.log("click registered");
-  console.log(textAreaEl.val);
+const searchCity = function (event) {
+  // Prevent refresh screen
+  event.preventDefault();
+
+  cityQuery = searchInput.value.trim();
+  console.log(cityQuery);
 };
 
 // Event listener for search button
-buttonEl.onclick = searchCity();
+cityForm.addEventListener("submit", searchCity);
