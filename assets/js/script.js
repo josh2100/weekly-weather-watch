@@ -106,6 +106,15 @@ const getOneCallData = function () {
               data.daily[day].wind_speed
             )} MPH`;
           }
+
+          for (let day = 0; day < 5; day++) {
+            document.querySelector(
+              `#day${day} div:nth-child(5)`
+            ).textContent = `Humidity: ${Math.round(
+              data.daily[day].humidity
+            )}%`;
+          }
+
           //test section
           //test section
         });
