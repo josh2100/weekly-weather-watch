@@ -83,7 +83,34 @@ const getCurrentWeatherData = function () {
     });
 };
 
+const getOneCallData = function () {
+  // create onecallapi var
+  let oneCallApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=cdda6b75856c86ce1bea221c999009fa`;
+  // let cityApi = `https://api.openweathermap.org/data/2.5/forecast?q=${cityQuery}&appid=cdda6b75856c86ce1bea221c999009fa&units=imperial`;
+
+  // Make a request to the url
+  fetch(oneCallApi)
+    .then(function (response) {
+      // request was successful
+      if (response.ok) {
+        // console.log(response);
+        response.json().then(function (data) {
+          console.log(data);
+        });
+      } else {
+        // Use modal instead of alert
+        alert("Error: " + response.statusText);
+      }
+    })
+    .catch(function () {
+      alert("Unable to connect");
+    });
+};
+
 const displayWeatherData = function (data) {
+  // run second api function asynchronously
+  getOneCallData();
+
   console.log(data);
   console.log(latitude);
   console.log(longitude);
