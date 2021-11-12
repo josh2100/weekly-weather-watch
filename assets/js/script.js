@@ -1,28 +1,23 @@
 // Start with displaying the day
 const todayEl = document.querySelector("#today");
-const textAreaEl = document.querySelector("textarea");
+
+// const textAreaEl = document.querySelector("textarea");
 const cityNameEl = document.querySelector("#cityName");
 const formEl = document.querySelector("#cityForm");
 const searchInput = document.querySelector("input");
 
+const currentTempEl = document.querySelector("#current-temp");
+const currentUviEl = document.querySelector("#current-uvi");
+const currentWindEl = document.querySelector("#current-wind");
+const currentHumidityEl = document.querySelector("#current-humidity");
+
 let cityQuery = "";
 let latitude = "";
 let longitude = "";
-const now = dayjs();
+let now = dayjs();
 
-// api key cdda6b75856c86ce1bea221c999009fa
-// API nightmares
-// const asia =
-//   "https://api.openweathermap.org/data/2.5/onecall?lat=45&lon=93&appid=cdda6b75856c86ce1bea221c999009fa";
-// const chaiaIsAlwaysRight =
-//   "https://api.openweathermap.org/data/2.5/onecall?lat=45&lon=93&exclude=minutely&appid=cdda6b75856c86ce1bea221c999009fa";
-// var fiveDayMinneapolis =
-//   "https://api.openweathermap.org/data/2.5/forecast?q=minneapolis&appid=cdda6b75856c86ce1bea221c999009fa&units=imperial";
-//   doc example api.openweathermap.org/data/2.5/forecast/daily?q={city name}&cnt={cnt}&appid={API key}
 const currentWeatherDataApi = `https://api.openweathermap.org/data/2.5/forecast?q=${cityQuery}&appid=cdda6b75856c86ce1bea221c999009fa&units=imperial`;
 const oneCallApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=cdda6b75856c86ce1bea221c999009fa`;
-
-todayEl.textContent = now;
 
 // Search for city
 const searchCity = (event) => {
@@ -42,10 +37,7 @@ const getWeather = function (api) {
     .then(function (response) {
       // request was successful
       if (response.ok) {
-        // console.log(response);
-        response.json().then(function (data) {
-          console.log(data);
-        });
+        response.json().then(function (data) {});
       } else {
         // Use modal instead of alert
         alert("Error: " + response.statusText);
@@ -64,12 +56,15 @@ const getCurrentWeatherData = function () {
     .then(function (response) {
       // request was successful
       if (response.ok) {
-        // console.log(response);
         response.json().then(function (data) {
           // set latitude
           latitude = data.city.coord.lat;
           // set longitude
           longitude = data.city.coord.lon;
+          ///test
+          console.log(data);
+          // cityNameEl.textContent = data.city.name;
+          cityNameEl.textContent = `${data.city.name} ${now}`;
 
           displayWeatherData(data);
         });
@@ -84,9 +79,8 @@ const getCurrentWeatherData = function () {
 };
 
 const getOneCallData = function () {
-  // create onecallapi var
-  let oneCallApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=cdda6b75856c86ce1bea221c999009fa`;
-  // let cityApi = `https://api.openweathermap.org/data/2.5/forecast?q=${cityQuery}&appid=cdda6b75856c86ce1bea221c999009fa&units=imperial`;
+  // let oneCallApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=cdda6b75856c86ce1bea221c999009fa`;
+  let oneCallApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&appid=cdda6b75856c86ce1bea221c999009fa`;
 
   // Make a request to the url
   fetch(oneCallApi)
@@ -95,7 +89,11 @@ const getOneCallData = function () {
       if (response.ok) {
         // console.log(response);
         response.json().then(function (data) {
-          console.log(data);
+          // console.log(data);
+          currentTempEl.textContent = `Current Temp: ${data.current.temp} °F`;
+          currentUviEl.textContent = `UV Index: ${data.current.uvi}`;
+          currentWindEl.textContent = `Wind: ${data.current.wind_speed} MPH`;
+          currentHumidityEl.textContent = `Humidity: ${data.current.humidity}%`;
         });
       } else {
         // Use modal instead of alert
@@ -111,9 +109,9 @@ const displayWeatherData = function (data) {
   // run second api function asynchronously
   getOneCallData();
 
-  console.log(data);
-  console.log(latitude);
-  console.log(longitude);
+  // console.log(data);
+  // console.log(latitude);
+  // console.log(longitude);
   // console.log(data.city.country);
   // console.log("current temp is");
   // console.log(data.list[0].main.temp);
