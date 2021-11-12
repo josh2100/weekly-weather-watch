@@ -60,13 +60,16 @@ const getDynamicWeather = function () {
     .then(function (response) {
       // request was successful
       if (response.ok) {
-        console.log(response);
+        // console.log(response);
         response.json().then(function (data) {
           ///test
           //   console.log(data);
           //   console.log(data.city.population);
-          console.log(data.list[0].wind.speed);
-          console.log(data.list[1].wind.speed);
+          //   console.log("wind speed is");
+          //   console.log(data.list[0].wind.speed);
+          //   console.log("high temp of");
+          //   console.log(data.list[0].main.temp_max);
+          displayWeatherData(data);
         });
       } else {
         // Use modal instead of alert
@@ -78,5 +81,18 @@ const getDynamicWeather = function () {
     });
 };
 
+const displayWeatherData = function (data) {
+  console.log(data);
+  console.log("current temp is");
+  console.log(data.list[0].main.temp);
+
+  console.log("wind speed is");
+  console.log(data.list[0].wind.speed);
+
+  console.log("current humidity is");
+  console.log(data.list[0].main.humidity);
+
+  // uv index??
+};
 // Event listener for search button
 cityForm.addEventListener("submit", searchCity);
