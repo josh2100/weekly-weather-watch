@@ -17,7 +17,6 @@ let cityQuery = "";
 let latitude = "";
 let longitude = "";
 let now = dayjs();
-
 const currentWeatherDataApi = `https://api.openweathermap.org/data/2.5/forecast?q=${cityQuery}&appid=cdda6b75856c86ce1bea221c999009fa&units=imperial`;
 const oneCallApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=cdda6b75856c86ce1bea221c999009fa`;
 
@@ -31,24 +30,6 @@ const searchCity = (event) => {
   getCurrentWeatherData();
   // getWeather(asia);
 };
-
-// saving getWeather only for testing purposes
-// const getWeather = function (api) {
-//   // Make a request to the url
-//   fetch(api)
-//     .then(function (response) {
-//       // request was successful
-//       if (response.ok) {
-//         response.json().then(function (data) {});
-//       } else {
-//         // Use modal instead of alert
-//         alert("Error: " + response.statusText);
-//       }
-//     })
-//     .catch(function () {
-//       alert("Unable to connect");
-//     });
-// };
 
 const getCurrentWeatherData = function () {
   let cityApi = `https://api.openweathermap.org/data/2.5/forecast?q=${cityQuery}&appid=cdda6b75856c86ce1bea221c999009fa&units=imperial`;
@@ -66,6 +47,17 @@ const getCurrentWeatherData = function () {
           // Update city name
           cityNameEl.textContent = `${data.city.name} ${now}`;
 
+          //test section data.list[i].dt_txt
+
+          for (let day = 0; day < 5; day++) {
+            document.querySelector(
+              `#day${day} div:nth-child(1)`
+            ).textContent = `date`;
+          }
+
+          //test section
+
+          console.log(data);
           displayWeatherData(data);
         });
       } else {
@@ -87,7 +79,7 @@ const getOneCallData = function () {
       // Request was successful
       if (response.ok) {
         response.json().then(function (data) {
-          console.log(data);
+          // console.log(data);
           currentTempEl.textContent = `Current Temp: ${data.current.temp} °F`;
           currentUviEl.textContent = `UV Index: ${data.current.uvi}`;
           currentWindEl.textContent = `Wind: ${data.current.wind_speed} MPH`;
