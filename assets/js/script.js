@@ -12,6 +12,7 @@ const currentHumidityEl = document.querySelector("#current-humidity");
 let cityQuery = "";
 let latitude = "";
 let longitude = "";
+let recentSearches = [];
 
 const buildDate = function (addedDays) {
   //https://stackoverflow.com/questions/3572561/set-date-10-days-in-the-future-and-format-to-dd-mm-yyyy-e-g-21-08-2010
@@ -30,8 +31,27 @@ const buildDate = function (addedDays) {
 const searchCity = (event) => {
   // Prevent refresh screen
   event.preventDefault();
+
   // Trim whitespace
   cityQuery = searchInput.value.trim();
+
+  ///test section
+  saveRecentSearches();
+  // recentSearches.unshift(cityQuery);
+
+  // for (let index = 0; index < 10; index++) {
+  //   const element = recentSearches[index];
+
+  //   localStorage.setItem("city", element);
+  // }
+
+  // change to first ten items
+
+  // recentSearches.forEach((element) => {
+  //   localStorage.setItem("city", element);
+  // });
+
+  // test section
 
   getCurrentWeatherData();
 };
@@ -114,6 +134,27 @@ const getOneCallData = function () {
     });
 };
 
+///test section
+var loadRecentSearches = function () {
+  city = JSON.parse(localStorage.getItem("city"));
+
+  // if nothing in localStorage, create a new object to track all task status arrays
+  if (!city) {
+    recentSearches = [];
+  } else {
+    recentSearches = JSON.parse(localStorage.getItem("city"));
+  }
+
+  console.log(city);
+};
+
+var saveRecentSearches = function () {
+  recentSearches.push(cityQuery);
+
+  localStorage.setItem("city", JSON.stringify(recentSearches));
+};
+//test section
+
 // Event listener for search button
 cityForm.addEventListener("submit", searchCity);
 
@@ -125,3 +166,5 @@ for (let day = 0; day < 5; day++) {
     day + 1
   );
 }
+
+loadRecentSearches();
