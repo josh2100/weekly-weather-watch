@@ -1,7 +1,5 @@
 // Start with displaying the day
-const todayEl = document.querySelector("#today");
-
-// const textAreaEl = document.querySelector("textarea");
+/// change or delete today el
 const cityNameEl = document.querySelector("#cityName");
 const formEl = document.querySelector("#cityForm");
 const searchInput = document.querySelector("input");
@@ -11,24 +9,31 @@ const currentUviEl = document.querySelector("#current-uvi");
 const currentWindEl = document.querySelector("#current-wind");
 const currentHumidityEl = document.querySelector("#current-humidity");
 
-// const daytemp = document.querySelector(`#day${numDay} div:nth-child(3)`);
-
 let cityQuery = "";
 let latitude = "";
 let longitude = "";
-let now = dayjs();
-const currentWeatherDataApi = `https://api.openweathermap.org/data/2.5/forecast?q=${cityQuery}&appid=cdda6b75856c86ce1bea221c999009fa&units=imperial`;
-const oneCallApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=cdda6b75856c86ce1bea221c999009fa`;
 
-// Search for city
+const buildDate = function (addedDays) {
+  //https://stackoverflow.com/questions/3572561/set-date-10-days-in-the-future-and-format-to-dd-mm-yyyy-e-g-21-08-2010
+  const targetDate = new Date();
+  targetDate.setDate(targetDate.getDate() + addedDays);
+
+  const dd = targetDate.getDate();
+  const mm = targetDate.getMonth() + 1;
+  const yyyy = targetDate.getFullYear();
+
+  const dateString = `${mm}/${dd}/${yyyy}`;
+
+  return dateString;
+};
+
 const searchCity = (event) => {
   // Prevent refresh screen
   event.preventDefault();
-
+  // Trim whitespace
   cityQuery = searchInput.value.trim();
 
   getCurrentWeatherData();
-  // getWeather(asia);
 };
 
 const getCurrentWeatherData = function () {
@@ -44,21 +49,10 @@ const getCurrentWeatherData = function () {
           latitude = data.city.coord.lat;
           // Set longitude
           longitude = data.city.coord.lon;
-          // Update city name
-          cityNameEl.textContent = `${data.city.name} ${now}`;
+          // Update city name and today's date
+          cityNameEl.textContent = `${data.city.name} ${buildDate(0)}`;
 
-          //test section data.list[i].dt_txt
-
-          for (let day = 0; day < 5; day++) {
-            document.querySelector(
-              `#day${day} div:nth-child(1)`
-            ).textContent = `date`;
-          }
-
-          //test section
-
-          console.log(data);
-          displayWeatherData(data);
+          getOneCallData();
         });
       } else {
         // Use modal instead of alert
@@ -108,6 +102,7 @@ const getOneCallData = function () {
           }
 
           //test section
+          console.log(data);
           //test section
         });
       } else {
@@ -119,24 +114,14 @@ const getOneCallData = function () {
     });
 };
 
-const displayWeatherData = function (data) {
-  // run second api function asynchronously
-  getOneCallData();
-
-  // console.log(data);
-  // console.log(latitude);
-  // console.log(longitude);
-  // console.log(data.city.country);
-  // console.log("current temp is");
-  // console.log(data.list[0].main.temp);
-  // console.log("wind speed is");
-  // console.log(data.list[0].wind.speed);
-  // console.log("current humidity is");
-  // console.log(data.list[0].main.humidity);
-  // uv index??
-  // console.log("the current temp is");
-  // console.log(data.list[0]);
-  // console.log(data.coord.lat);
-};
 // Event listener for search button
 cityForm.addEventListener("submit", searchCity);
+
+// Fill in today's data and 5 day forecast dates
+cityNameEl.textContent = buildDate(0);
+
+for (let day = 0; day < 5; day++) {
+  document.querySelector(`#day${day} div:nth-child(1)`).textContent = buildDate(
+    day + 1
+  );
+}
