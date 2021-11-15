@@ -35,23 +35,7 @@ const searchCity = (event) => {
   // Trim whitespace
   cityQuery = searchInput.value.trim();
 
-  ///test section
-  saveRecentSearches();
-  // recentSearches.unshift(cityQuery);
-
-  // for (let index = 0; index < 10; index++) {
-  //   const element = recentSearches[index];
-
-  //   localStorage.setItem("city", element);
-  // }
-
-  // change to first ten items
-
-  // recentSearches.forEach((element) => {
-  //   localStorage.setItem("city", element);
-  // });
-
-  // test section
+  // saveRecentSearches();
 
   getCurrentWeatherData();
 };
@@ -71,6 +55,8 @@ const getCurrentWeatherData = function () {
           longitude = data.city.coord.lon;
           // Update city name and today's date
           cityNameEl.textContent = `${data.city.name} ${buildDate(0)}`;
+          // Save successful search
+          saveRecentSearches();
 
           getOneCallData();
         });
@@ -134,7 +120,6 @@ const getOneCallData = function () {
     });
 };
 
-///test section
 var loadRecentSearches = function () {
   city = JSON.parse(localStorage.getItem("city"));
 
@@ -149,11 +134,22 @@ var loadRecentSearches = function () {
 };
 
 var saveRecentSearches = function () {
-  recentSearches.push(cityQuery);
+  checkIfAlreadyAdded = function () {
+    for (let index = 0; index < recentSearches.length; index++) {
+      if (cityQuery == recentSearches[index]) {
+        return true;
+      }
+    }
+  };
+
+  if (recentSearches.some(checkIfAlreadyAdded)) {
+    console.log("already contains this!");
+  } else {
+    recentSearches.unshift(cityQuery);
+  }
 
   localStorage.setItem("city", JSON.stringify(recentSearches));
 };
-//test section
 
 // Event listener for search button
 cityForm.addEventListener("submit", searchCity);
