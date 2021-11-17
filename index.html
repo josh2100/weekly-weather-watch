@@ -11,22 +11,30 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weekly Weather Watch</title>
   </head>
-  <body>
+  <body class="teal-green">
     <header class="container-fluid">
       <div class="row">
-        <h1 id="" class="col-12 bg-primary">Weekly Weather Watch</h1>
+        <h1 id="" class="col-12 mb-3 text-center teal">Weekly Weather Watch</h1>
       </div>
     </header>
 
     <main class="container-fluid">
       <div class="row">
         <!-- Left side -->
-        <div class="col-12 col-md-4 col-lg-3 bg-warning">
-          <form id="cityForm" action="" method="get" class="citySearch">
-            <div class="citySearch">
-              <label for="search"><h2>Search for City</h2></label>
+        <div id="left-side" class="col-12 col-md-4 col-lg-3 mt-3 p-1">
+          <form
+            id="cityForm"
+            action=""
+            method="get"
+            class="citySearch p-3 teal rounded"
+          >
+            <!-- Search for City  -->
+            <div class="citySearch teal">
+              <label for="search" class="teal"
+                ><h2 class="teal">Search for City</h2></label
+              >
               <input
-                class="col-12"
+                class="col-12 teal"
                 type="text"
                 name="name"
                 id="name"
@@ -38,66 +46,77 @@
               <input class="col-12" type="submit" value="Search City" />
             </div>
           </form>
-          LEFT
+          <!-- Recent Search Buttons -->
+          <div id="recent-searches" class="p-3"><p></p></div>
         </div>
         <!-- Right side -->
-        <div
-          class="
-            col-12 col-md-8 col-lg-9
-            bg-light
-            border border-success
-            rounded
-          "
-        >
-          <section class="border border-success rounded">
-            <h2 id="cityName"></h2>
-            <div id="current-temp">temp</div>
-            <div id="current-wind">wind</div>
-            <div id="current-humidity">humidity</div>
-            <div id="current-uvi">uv index</div>
+        <div class="col-12 col-md-8 col-lg-9">
+          <section class="border border-success teal rounded">
+            <h2 id="cityName" class="teal"></h2>
+            <div id="current-temp" class="teal">temp</div>
+            <div id="current-wind" class="teal">wind</div>
+            <div id="current-humidity" class="teal">humidity</div>
+            <div id="current-uvi" class="teal">uv index</div>
           </section>
           <!-- 5 day forecast -->
-          <section class="container-fluid">
-            <div class="row"><h2 id="">5 Day Forecast</h2></div>
-            <div class="row">
-              <div id="day0" class="col-2">
-                <div>Day 1</div>
-                <div>Icon</div>
-                <div>Temp</div>
-                <div>Wind</div>
-                <div>Humidity</div>
+          <section class="container-fluid rounded">
+            <div class="row mt-3 teal">
+              <h2 id="" class="teal">5 Day Forecast</h2>
+            </div>
+            <div class="row teal">
+              <div
+                id="day0"
+                class="col-2 border border-success rounded mint m-2"
+              >
+                <div class="mint">Day 1</div>
+                <div class="mint">Icon</div>
+                <div class="mint">Temp</div>
+                <div class="mint">Wind</div>
+                <div class="mint">Humidity</div>
               </div>
 
-              <div id="day1" class="col-2">
-                <div>Day 1</div>
-                <div>Icon</div>
-                <div>Temp</div>
-                <div>Wind</div>
-                <div>Humidity</div>
+              <div
+                id="day1"
+                class="col-2 border border-success rounded mint m-2"
+              >
+                <div class="mint">Day 1</div>
+                <div class="mint">Icon</div>
+                <div class="mint">Temp</div>
+                <div class="mint">Wind</div>
+                <div class="mint">Humidity</div>
               </div>
 
-              <div id="day2" class="col-2">
-                <div>Day 1</div>
-                <div>Icon</div>
-                <div>Temp</div>
-                <div>Wind</div>
-                <div>Humidity</div>
+              <div
+                id="day2"
+                class="col-2 border border-success rounded mint m-2"
+              >
+                <div class="mint">Day 1</div>
+                <div class="mint">Icon</div>
+                <div class="mint">Temp</div>
+                <div class="mint">Wind</div>
+                <div class="mint">Humidity</div>
               </div>
 
-              <div id="day3" class="col-2">
-                <div>Day 1</div>
-                <div>Icon</div>
-                <div>Temp</div>
-                <div>Wind</div>
-                <div>Humidity</div>
+              <div
+                id="day3"
+                class="col-2 border border-success rounded mint m-2"
+              >
+                <div class="mint">Day 1</div>
+                <div class="mint">Icon</div>
+                <div class="mint">Temp</div>
+                <div class="mint">Wind</div>
+                <div class="mint">Humidity</div>
               </div>
 
-              <div id="day4" class="col-2">
-                <div>Day 1</div>
-                <div>Icon</div>
-                <div>Temp</div>
-                <div>Wind</div>
-                <div>Humidity</div>
+              <div
+                id="day4"
+                class="col-2 border border-success rounded mint m-2"
+              >
+                <div class="mint">Day 1</div>
+                <div class="mint">Icon</div>
+                <div class="mint">Temp</div>
+                <div class="mint">Wind</div>
+                <div class="mint">Humidity</div>
               </div>
             </div>
           </section>
