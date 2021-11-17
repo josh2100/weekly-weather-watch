@@ -84,11 +84,14 @@ const getOneCallData = () => {
           currentUviEl.textContent = `UV Index: ${data.current.uvi}`;
           currentWindEl.textContent = `Wind: ${data.current.wind_speed} MPH`;
           currentHumidityEl.textContent = `Humidity: ${data.current.humidity}%`;
+          /// NEEDS CURRENT ICON
           // Insert weather data for 5 day forecast
           for (let day = 0; day < 5; day++) {
+            let icon = data.daily[day].weather[0].icon;
+
             document.querySelector(
               `#day${day} div:nth-child(2)`
-            ).textContent = `${data.daily[day].weather[0].main}`;
+            ).innerHTML = `<img src = http://openweathermap.org/img/wn/${icon}.png />`;
 
             document.querySelector(
               `#day${day} div:nth-child(3)`
