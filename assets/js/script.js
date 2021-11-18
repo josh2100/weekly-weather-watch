@@ -4,6 +4,7 @@ const leftSideContainerEl = document.querySelector("#left-side");
 const searchInput = document.querySelector("input");
 const recentSearchesEl = document.querySelector("#recent-searches");
 
+const currentWeatherIconEl = document.querySelector("#current-weather-icon");
 const currentTempEl = document.querySelector("#current-temp");
 const currentUviEl = document.querySelector("#current-uvi");
 const currentWindEl = document.querySelector("#current-wind");
@@ -78,20 +79,21 @@ const getOneCallData = () => {
       // Request was successful
       if (response.ok) {
         response.json().then(function (data) {
-          console.log(data);
           // Insert Current Weather Data
+          let currentIcon = data.current.weather[0].icon;
+          currentWeatherIconEl.innerHTML = `<img src='http://openweathermap.org/img/wn/${currentIcon}.png'/>`;
           currentTempEl.textContent = `Current Temp: ${data.current.temp} °F`;
           currentUviEl.textContent = `UV Index: ${data.current.uvi}`;
           currentWindEl.textContent = `Wind: ${data.current.wind_speed} MPH`;
           currentHumidityEl.textContent = `Humidity: ${data.current.humidity}%`;
-          /// NEEDS CURRENT ICON
+
           // Insert weather data for 5 day forecast
           for (let day = 0; day < 5; day++) {
             let icon = data.daily[day].weather[0].icon;
 
             document.querySelector(
               `#day${day} div:nth-child(2)`
-            ).innerHTML = `<img src = http://openweathermap.org/img/wn/${icon}.png />`;
+            ).innerHTML = `<img src='http://openweathermap.org/img/wn/${icon}.png'/>`;
 
             document.querySelector(
               `#day${day} div:nth-child(3)`
