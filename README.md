@@ -8,7 +8,7 @@ Please submit an issue if you see a bug or a suggested improvement.
 
 ## Deployment
 
-URL HERE
+https://josh2100.github.io/weekly-weather-watch/
 
 ## Screenshot
 
