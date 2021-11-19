@@ -1,8 +1,16 @@
 /* https://www.canva.com/colors/color-palettes/water-foam/ */
 
-/* * {
-  background-color: #ddffe7;
-} */
+.back-yellow {
+  background-color: yellow;
+}
+
+.back-orange {
+  background-color: orange;
+}
+
+.back-violet {
+  background-color: violet;
+}
 
 .mint {
   background-color: #ddffe7;

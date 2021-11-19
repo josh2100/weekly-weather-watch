@@ -2,7 +2,7 @@
 
 Weekly Weather Watch is a web application used for displaying weekly weather information for different cities
 
-I built this with HTML, JavaScript, jQuery, Moment.js, CSS, Bootstrap, Font Awesome and Google Fonts.
+I built this with HTML, JavaScript, jQuery, CSS, Bootstrap, Font Awesome and Google Fonts.
 
 Please submit an issue if you see a bug or a suggested improvement.
 

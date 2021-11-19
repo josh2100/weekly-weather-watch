@@ -83,9 +83,30 @@ const getOneCallData = () => {
           let currentIcon = data.current.weather[0].icon;
           currentWeatherIconEl.innerHTML = `<img src='http://openweathermap.org/img/wn/${currentIcon}.png'/>`;
           currentTempEl.textContent = `Current Temp: ${data.current.temp} °F`;
-          currentUviEl.textContent = `UV Index: ${data.current.uvi}`;
           currentWindEl.textContent = `Wind: ${data.current.wind_speed} MPH`;
           currentHumidityEl.textContent = `Humidity: ${data.current.humidity}%`;
+          currentUviEl.textContent = `UV Index: ${data.current.uvi}`;
+
+          // Clear previous color classes
+          currentUviEl.classList.remove(
+            "bg-success",
+            "back-yellow",
+            "back-orange",
+            "bg-danger",
+            "back-violet"
+          );
+          // Check UV severity and indicate with respective color
+          if (data.current.uvi < 3) {
+            currentUviEl.classList.add("bg-success");
+          } else if (data.current.uvi >= 3 && data.current.uvi < 6) {
+            currentUviEl.classList.add("back-yellow");
+          } else if (data.current.uvi >= 6 && data.current.uvi < 8) {
+            currentUviEl.classList.add("back-orange");
+          } else if (data.current.uvi >= 8 && data.current.uvi < 11) {
+            currentUviEl.classList.add("bg-danger");
+          } else {
+            currentUviEl.classList.add("back-violet");
+          }
 
           // Insert weather data for 5 day forecast
           for (let day = 0; day < 5; day++) {
