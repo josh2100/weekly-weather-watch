@@ -1,8 +1,8 @@
 # Weekly Weather Watch
 
-Weekly Weather Watch is a web application used for displaying weekly weather information for different cities
+Weekly Weather Watch is a web application used for displaying weekly weather information for different cities around the world. Two Open Weather API calls are made to gather current and forecasted weather information for the next five days. The ten most recent searches show up as buttons under the search box. Client side storage is used for saving city search history.
 
-I built this with HTML, JavaScript, jQuery, CSS, Bootstrap, Font Awesome and Google Fonts.
+I built this with Open Weather API, HTML, JavaScript, CSS, Bootstrap, and Google Fonts. I used a color pallete that can be found at https://www.canva.com/colors/color-palettes/vintage-pastels/.
 
 Please submit an issue if you see a bug or a suggested improvement.
 
@@ -13,19 +13,3 @@ https://josh2100.github.io/weekly-weather-watch/
 ## Screenshot
 
 ![Weekly Weather Watch](./assets/images/screenshot.png)
-
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
-Acceptance Criteria
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city

@@ -3,7 +3,6 @@ const formEl = document.querySelector("#cityForm");
 const leftSideContainerEl = document.querySelector("#left-side");
 const searchInput = document.querySelector("input");
 const recentSearchesEl = document.querySelector("#recent-searches");
-
 const currentWeatherIconEl = document.querySelector("#current-weather-icon");
 const currentTempEl = document.querySelector("#current-temp");
 const currentUviEl = document.querySelector("#current-uvi");
@@ -17,6 +16,7 @@ let recentSearches = [];
 
 const buildDate = (addedDays) => {
   //https://stackoverflow.com/questions/3572561/set-date-10-days-in-the-future-and-format-to-dd-mm-yyyy-e-g-21-08-2010
+  // This function is close to the link found above, I just added an "added days" argument for flexibility
   const targetDate = new Date();
   targetDate.setDate(targetDate.getDate() + addedDays);
 
@@ -30,13 +30,11 @@ const buildDate = (addedDays) => {
 };
 
 const searchCity = (event) => {
-  // Prevent refresh screen
+  // Prevent screen refresh
   event.preventDefault();
 
-  // Trim whitespace
+  // Trim whitespace from input
   cityQuery = searchInput.value.trim();
-
-  // saveRecentSearches();
 
   getCurrentWeatherData();
 };
@@ -164,7 +162,7 @@ const saveRecentSearches = () => {
 
   if (recentSearches.some(checkIfAlreadyAdded)) {
   } else {
-    // Add to beginning of list
+    // If search query is not already present, add to beginning of list
     recentSearches.unshift(cityQuery);
   }
 
@@ -188,7 +186,7 @@ const displayRecentSearches = () => {
       newSearchButton.classList.add("rounded", "p-1", "m-1");
       recentSearchesEl.appendChild(newSearchButton);
 
-      // Add event listener to new search button
+      // Add event listener to the new search button
       newSearchButton.addEventListener("click", function (event) {
         searchInput.value = event.target.innerHTML.toLowerCase();
       });
@@ -201,7 +199,7 @@ const displayRecentSearches = () => {
 // Event listener for search button
 cityForm.addEventListener("submit", searchCity);
 
-// Fill in todays date and 5 day forecast dates
+// Fill in today's date and 5 day forecast dates
 cityNameEl.textContent = buildDate(0);
 
 for (let day = 0; day < 5; day++) {
@@ -210,5 +208,6 @@ for (let day = 0; day < 5; day++) {
   );
 }
 
+// Load and display previous searches from local storage
 loadRecentSearches();
 displayRecentSearches();

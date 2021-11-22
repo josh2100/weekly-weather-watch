@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -11,10 +17,10 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weekly Weather Watch</title>
   </head>
-  <body class="teal-green">
+  <body class="champagne sage-green-text">
     <header class="container-fluid">
       <div class="row">
-        <h1 id="" class="col-12 mb-3 text-center teal">Weekly Weather Watch</h1>
+        <h1 id="" class="col-12 mb-3 text-center lint">Weekly Weather Watch</h1>
       </div>
     </header>
 
@@ -26,15 +32,15 @@
             id="cityForm"
             action=""
             method="get"
-            class="citySearch p-3 teal rounded"
+            class="citySearch p-3 lint rounded"
           >
             <!-- Search for City  -->
-            <div class="citySearch teal">
-              <label for="search" class="teal"
-                ><h2 class="teal">Search for City</h2></label
+            <div class="citySearch lint">
+              <label for="search" class="lint"
+                ><h2 class="lint mx-auto">Search for City</h2></label
               >
               <input
-                class="col-12 teal"
+                class="col-12 lint"
                 type="text"
                 name="name"
                 id="name"
@@ -50,89 +56,106 @@
           <div id="recent-searches" class="p-3"><p></p></div>
         </div>
         <!-- Right side -->
-        <div class="col-12 col-md-8 col-lg-9">
-          <section class="border border-success teal rounded">
-            <h2 id="cityName" class="teal"></h2>
+        <div class="col-12 col-md-8 col-lg-9 mt-3">
+          <!-- Current Weather Conditions -->
+          <section class="lint rounded text-center">
+            <h2 id="cityName" class="lint text-center"></h2>
             <div id="current-weather-icon"></div>
-            <div id="current-temp" class="teal"></div>
-            <div id="current-wind" class="teal"></div>
-            <div id="current-humidity" class="teal"></div>
+            <div id="current-temp" class="lint"></div>
+            <div id="current-wind" class="lint"></div>
+            <div id="current-humidity" class="lint"></div>
             <div id="current-uvi" class=""></div>
           </section>
           <!-- 5 day forecast -->
           <section class="container-fluid rounded">
-            <div class="row mt-3 teal">
-              <h2 id="" class="teal">5 Day Forecast</h2>
+            <div class="row mt-3 lint">
+              <h2 id="" class="lint mx-auto">5 Day Forecast</h2>
             </div>
-            <div class="row teal">
+            <div class="row lint">
               <div
                 id="day0"
-                class="col-11 col-sm-5 col-md-5 col-lg-2 rounded mint m-2"
+                class="
+                  col-11 col-sm-4 col-md-5 col-lg col-xl
+                  rounded
+                  baby-blue
+                  m-2
+                "
               >
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
               </div>
 
               <div
                 id="day1"
-                class="col-11 col-sm-5 col-md-5 col-lg-2 rounded mint m-2"
+                class="
+                  col-11 col-sm-4 col-md-5 col-lg col-xl
+                  rounded
+                  baby-blue
+                  m-2
+                "
               >
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
               </div>
 
               <div
                 id="day2"
-                class="col-11 col-sm-5 col-md-5 col-lg-2 rounded mint m-2"
+                class="
+                  col-11 col-sm-4 col-md-5 col-lg col-xl
+                  rounded
+                  baby-blue
+                  m-2
+                "
               >
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
               </div>
 
               <div
                 id="day3"
-                class="col-11 col-sm-5 col-md-5 col-lg-2 rounded mint m-2"
+                class="
+                  col-11 col-sm-4 col-md-5 col-lg col-xlrounded
+                  baby-blue
+                  m-2
+                "
               >
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
               </div>
 
               <div
                 id="day4"
-                class="col-11 col-sm-5 col-md-5 col-lg-2 rounded mint m-2"
+                class="
+                  col-11 col-sm-4 col-md-5 col-lg col-xl
+                  rounded
+                  baby-blue
+                  m-2
+                "
               >
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
-                <div class="mint"></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
               </div>
             </div>
           </section>
         </div>
-        <!-- end right side -->
+        <!-- End right side -->
       </div>
     </main>
-
-    <!-- day.js script -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.7/dayjs.min.js"></script> -->
-    <!-- custom parse day.js script -->
-
-    <!-- <script src=""></script> -->
-
-    <!-- my script -->
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

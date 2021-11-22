@@ -1,4 +1,6 @@
-/* https://www.canva.com/colors/color-palettes/water-foam/ */
+body {
+  font-family: "ABeeZee", sans-serif;
+}
 
 .back-yellow {
   background-color: yellow;
@@ -12,16 +14,15 @@
   background-color: violet;
 }
 
-.mint {
-  background-color: #ddffe7;
+/* https://www.canva.com/colors/color-palettes/vintage-pastels/ */
+.champagne {
+  background-color: #feefde;
 }
 
-.spearmint {
-  background-color: #98d7c2;
+.lint {
+  background-color: #dfdacd;
 }
-.teal-green {
-  background-color: #167d7f;
-}
-.teal {
-  background-color: #29a0b1;
+
+.baby-blue {
+  background-color: #dae3e6;
 }
