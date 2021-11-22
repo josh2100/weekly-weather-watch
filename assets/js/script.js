@@ -8,7 +8,6 @@ const currentTempEl = document.querySelector("#current-temp");
 const currentUviEl = document.querySelector("#current-uvi");
 const currentWindEl = document.querySelector("#current-wind");
 const currentHumidityEl = document.querySelector("#current-humidity");
-
 let cityQuery = "";
 let latitude = "";
 let longitude = "";
@@ -183,7 +182,7 @@ const displayRecentSearches = () => {
       );
       // Add it to recent search section and add classes
       newSearchButton.appendChild(recentSearch);
-      newSearchButton.classList.add("rounded", "p-1", "m-1");
+      newSearchButton.classList.add("rounded", "p-1", "m-1", "baby-blue");
       recentSearchesEl.appendChild(newSearchButton);
 
       // Add event listener to the new search button
