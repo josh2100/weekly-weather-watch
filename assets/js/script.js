@@ -6,6 +6,7 @@ const recentSearchesEl = document.querySelector("#recent-searches");
 const currentWeatherIconEl = document.querySelector("#current-weather-icon");
 const currentTempEl = document.querySelector("#current-temp");
 const currentUviEl = document.querySelector("#current-uvi");
+const uviColor = document.querySelector("#uvi-color");
 const currentWindEl = document.querySelector("#current-wind");
 const currentHumidityEl = document.querySelector("#current-humidity");
 let cityQuery = "";
@@ -85,7 +86,7 @@ const getOneCallData = () => {
           currentUviEl.textContent = `UV Index: ${data.current.uvi}`;
 
           // Clear previous color classes
-          currentUviEl.classList.remove(
+          uviColor.classList.remove(
             "bg-success",
             "back-yellow",
             "back-orange",
@@ -94,15 +95,20 @@ const getOneCallData = () => {
           );
           // Check UV severity and indicate with respective color
           if (data.current.uvi < 3) {
-            currentUviEl.classList.add("bg-success");
+            uviColor.classList.add("bg-success");
+            uviColor.textContent = "Low";
           } else if (data.current.uvi >= 3 && data.current.uvi < 6) {
-            currentUviEl.classList.add("back-yellow");
+            uviColor.classList.add("back-yellow");
+            uviColor.textContent = "Moderate";
           } else if (data.current.uvi >= 6 && data.current.uvi < 8) {
-            currentUviEl.classList.add("back-orange");
+            uviColor.classList.add("back-orange");
+            uviColor.textContent = "High";
           } else if (data.current.uvi >= 8 && data.current.uvi < 11) {
-            currentUviEl.classList.add("bg-danger");
+            uviColor.classList.add("bg-danger");
+            uviColor.textContent = "Very High";
           } else {
-            currentUviEl.classList.add("back-violet");
+            uviColor.classList.add("back-violet");
+            uviColor.textContent = "Extreme";
           }
 
           // Insert weather data for 5 day forecast
