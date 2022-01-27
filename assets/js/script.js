@@ -83,7 +83,7 @@ const getOneCallData = () => {
           currentTempEl.textContent = `Current Temp: ${data.current.temp} °F`;
           currentWindEl.textContent = `Wind: ${data.current.wind_speed} MPH`;
           currentHumidityEl.textContent = `Humidity: ${data.current.humidity}%`;
-          currentUviEl.textContent = `UV Index: ${data.current.uvi}`;
+          currentUviEl.textContent = `UV Index: ${data.current.uvi} `;
 
           // Clear previous color classes
           uviColor.classList.remove(
